@@ -84,7 +84,7 @@ def registration_request(request):
 # Update the `get_dealerships` view to render the index page with a list of dealerships
 def get_dealerships(request):
     if request.method == "GET":
-        url = "https://service.eu.apiconnect.ibmcloud.com/gws/apigateway/api/a9220b6d6b26f1eb3b657a98770b743616f7d4cd223b89cd1ca4e88ab49bdb92/api/dealership"
+        url = "https://e903dbb6.us-south.apigw.appdomain.cloud/api/dealership"
         # Get dealers from the URL
         context = {
             "dealerships": get_dealers_from_cf(url),
@@ -97,8 +97,8 @@ def get_dealerships(request):
 # def get_dealer_details(request, dealer_id):
 def get_dealer_details(request, dealer_id):
     if request.method == "GET":
-        url_r = f"https://service.eu.apiconnect.ibmcloud.com/gws/apigateway/api/a9220b6d6b26f1eb3b657a98770b743616f7d4cd223b89cd1ca4e88ab49bdb92/api/review?dealerId={dealer_id}"
-        url_ds = f"https://service.eu.apiconnect.ibmcloud.com/gws/apigateway/api/a9220b6d6b26f1eb3b657a98770b743616f7d4cd223b89cd1ca4e88ab49bdb92/api/dealership?dealerId={dealer_id}"
+        url_r = f"https://e903dbb6.us-south.apigw.appdomain.cloud/api/review?dealerId={dealer_id}"
+        url_ds = f"https://e903dbb6.us-south.apigw.appdomain.cloud/api/dealership?dealerId={dealer_id}"
         # Get dealers from the URL
         context = {
             "dealer": get_dealers_from_cf(url_ds)[0],
@@ -111,7 +111,7 @@ def get_dealer_details(request, dealer_id):
 # ...
 def add_review(request, dealer_id):
     if request.method == "GET":
-        url = f"https://service.eu.apiconnect.ibmcloud.com/gws/apigateway/api/a9220b6d6b26f1eb3b657a98770b743616f7d4cd223b89cd1ca4e88ab49bdb92/api/dealership?dealerId={dealer_id}"
+        url = f"https://e903dbb6.us-south.apigw.appdomain.cloud/api/dealership?dealerId={dealer_id}"
         # Get dealers from the URL
         context = {
             "cars": CarModel.objects.all(),
@@ -134,6 +134,6 @@ def add_review(request, dealer_id):
             review["car_model"] = car.name
             review["car_year"]= car.year.strftime("%Y")
         json_payload = {"review": review}
-        URL = 'https://service.eu.apiconnect.ibmcloud.com/gws/apigateway/api/a9220b6d6b26f1eb3b657a98770b743616f7d4cd223b89cd1ca4e88ab49bdb92/api/review'
+        URL = 'https://e903dbb6.us-south.apigw.appdomain.cloud/api/review'
         post_request(URL, json_payload, dealerId=dealer_id)
     return redirect("djangoapp:dealer_details", dealer_id=dealer_id)
