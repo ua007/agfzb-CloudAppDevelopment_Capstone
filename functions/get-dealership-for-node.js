@@ -1,3 +1,6 @@
+// IBM Action, method=GET, node.js v12
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 const Cloudant = require('@cloudant/cloudant'); 
 
 function main(params) {
