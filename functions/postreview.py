@@ -1,3 +1,5 @@
+# IBM Action, method=GET, Python 3.9
+
 import sys
 from ibmcloudant.cloudant_v1 import CloudantV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
