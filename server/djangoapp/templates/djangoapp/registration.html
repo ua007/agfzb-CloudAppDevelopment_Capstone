@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
     <body>
-    <!--Add a registration form here -->
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -16,20 +15,20 @@
             </div>
         </div>
     </nav>
-
+    <!--Add a registration form here -->
     <form action="{% url 'djangoapp:registration' %}" method="POST">
         <div class="container lead mt-5 text-left">
             <h1>Sign Up</h1>
             <hr>
             <div class="card-columns-vertical">
                 <label for="username"><b>User Name</b></label>
-                <input type="text" class="form-control" placeholder="Enter User Name: " name="username" required>
+                <input type="text" class="form-control" placeholder="Username" name="username" required>
                 <label for="firstname"><b>First Name</b></label>
-                <input type="text" class="form-control" placeholder="Enter First Name: " name="firstname" required>
+                <input type="text" class="form-control" placeholder="Firstname" name="firstname" required>
                 <label for="lastname"><b>Last Name</b></label>
-                <input type="text" class="form-control" placeholder="Enter Last Name: " name="lastname" required>
+                <input type="text" class="form-control" placeholder="Lastname" name="lastname" required>
                 <label for="psw"><b>Password</b></label>
-                <input type="password" class="form-control" placeholder="Enter Password: " name="psw" required>
+                <input type="password" class="form-control" placeholder="Password" name="psw" required>
             </div>
             <div>
                 {% csrf_token %}
