@@ -27,7 +27,7 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = ["localhost"]
+ALLOWED_HOSTS = ['anandutkarsh-46r2.us-south.cf.appdomain.cloud']
 
 
 # Application definition
