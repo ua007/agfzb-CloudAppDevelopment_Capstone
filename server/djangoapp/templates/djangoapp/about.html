@@ -1,7 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <title>Dealership Review</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -14,26 +14,15 @@
 
 </head>
 
-    <body>
-    <!-- Remove this line the first time you edit this file -->
-
-    <!--Add a nav bar here -->
-
+<body>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Dealership Review</a>
+                <a class="navbar-brand" href="{% url 'djangoapp:index' %}">Dealership Review</a>
+                <a class="navbar-brand" href="{% url 'djangoapp:about' %}">About Us</a>
+                <a class="navbar-brand" href="{% url 'djangoapp:contact' %}">Contact Us</a>
             </div>
-            <ul class="nav navbar navbar-right">
-                <li class="pr-5">
-                    <a class="text-dark" href="{% url 'djangoapp:index' %}">Home</a>
-                </li>
-                <li class="pr-5">
-                    <a class="text-dark" href="{% url 'djangoapp:about' %}">About Us</a>
-                </li>
-                <li class="pr-5">
-                    <a class="text-dark" href="{% url 'djangoapp:contact' %}">Contact Us</a>
-                </li>
+            <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
                 <li>
                     <a class="btn btn-link" href="#">{{ user.first_name }}({{ user.username }})</a>
@@ -41,11 +30,11 @@
                 </li>
                 {% else %}
                 <li>
-                    <form class="form-inline" action="{% url 'djangoapp:login' %}" method="post">
+                    <form class="form-inline" action="{% url 'djangoapp:login' %}" method="POST">
                         {% csrf_token %}
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Username" name="username" >
-                            <input type="password" class="form-control" placeholder="Password" name="psw" >
+                            <input type="text" class="form-control" placeholder="Username" name="username">
+                            <input type="password" class="form-control" placeholder="Password" name="psw">
                             <button class="btn btn-primary" type="submit">Login</button>
                             <a class="btn btn-link" href="{% url 'djangoapp:registration' %}">Sign Up</a>
                         </div>
@@ -55,10 +44,10 @@
             </ul>
         </div>
     </nav>
-        <h1>
-            Welcome to Best Cars dealership, home to the best cars in North America. We sell domestic and imported cars at reasonable prices.
-        </h1>
 
-    </body>
+    <p class="lead mt-5 text-center">
+        <b>Welcome</b> to Best Cars dealership, home to the best cars in North America. We sell domestic and imported cars at reasonable prices.
+    </p>
+</body>
 
 </html>
