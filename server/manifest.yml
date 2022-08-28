@@ -1,10 +1,10 @@
 applications:
-  - name: capstone
+  - name: simple-toolchain-capstone
     routes:
       - route: anandutkarsh-46r.us-south.cf.appdomain.cloud
     memory: 128M
     buildpack: python_buildpack
-  - name: capstone-nginx
+  - name: simple-toolchain-capstone-nginx
     routes:
       - route: anandutkarsh-46r.us-south.cf.appdomain.cloud/static
     memory: 128M
