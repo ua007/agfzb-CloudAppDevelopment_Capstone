@@ -101,7 +101,7 @@ def get_dealer_details(request, dealer_id):
         url_ds = "https://e903dbb6.us-south.apigw.appdomain.cloud/api/dealership?id={dealer_id}"
         # Get dealers from the URL
         context = {
-            "dealer": get_dealer_by_id_from_cf(dealer_url, dealer_id),
+            "dealer": get_dealer_by_id_from_cf(url_ds, dealer_id),
             "reviews": get_dealer_reviews_from_cf(url_r, dealer_id),
         }
         return render(request, 'djangoapp/dealer_details.html', context)
