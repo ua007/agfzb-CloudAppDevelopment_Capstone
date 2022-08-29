@@ -97,8 +97,8 @@ def get_dealerships(request):
 # def get_dealer_details(request, dealer_id):
 def get_dealer_details(request, dealer_id):
     if request.method == "GET":
-        url_r = "https://e903dbb6.us-south.apigw.appdomain.cloud/api/review?dealerId={dealer_id}"
-        url_ds = "https://e903dbb6.us-south.apigw.appdomain.cloud/api/dealership?dealerId={dealer_id}"
+        url_r = "https://e903dbb6.us-south.apigw.appdomain.cloud/api/review?id={dealer_id}"
+        url_ds = "https://e903dbb6.us-south.apigw.appdomain.cloud/api/dealership?id={dealer_id}"
         # Get dealers from the URL
         context = {
             "dealer": get_dealers_from_cf(url_ds)[0],
@@ -111,7 +111,7 @@ def get_dealer_details(request, dealer_id):
 # ...
 def add_review(request, dealer_id):
     if request.method == "GET":
-        url = "https://e903dbb6.us-south.apigw.appdomain.cloud/api/dealership?dealerId={dealer_id}"
+        url = "https://e903dbb6.us-south.apigw.appdomain.cloud/api/dealership?id={dealer_id}"
         # Get dealers from the URL
         context = {
             "cars": CarModel.objects.all(),
