@@ -122,7 +122,7 @@ def add_review(request, dealer_id):
     if request.method == "POST":
         form = request.POST
         review = {
-            "name": request.user.first_name + request.user.last_name,
+            "name": request.user.username,
             "id": dealer_id,
             "dealership": dealer_id,
             "review": form["content"],
