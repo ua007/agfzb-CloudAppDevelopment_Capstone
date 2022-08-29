@@ -122,13 +122,14 @@ def add_review(request, dealer_id):
     if request.method == "POST":
         form = request.POST
         review = {
-            "name": "{request.user.first_name} {request.user.last_name}",
+            "name": {request.user.first_name} {request.user.last_name},
+            "id": dealer_id
             "dealership": dealer_id,
             "review": form["content"],
             "purchase": form.get("purchasecheck"),
             }
         if form.get("purchasecheck"):
-            review["purchasedate"] = datetime.strptime(form.get("purchasedate"), "%m/%d/%Y").isoformat()
+            review["purchase_date"] = request.POST["purchase_date"]
             car = CarModel.objects.get(pk=form["car"])
             review["car_make"] = car.car_make.name
             review["car_model"] = car.name
